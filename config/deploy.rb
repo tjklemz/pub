@@ -2,8 +2,7 @@ set :stages, %w{ prod dev }
 set :default_stage, "dev"
 require 'capistrano/ext/multistage'
 
-set :app_port, 8000
-set :server_name, "pub.com"
+set :app_port, 80
 set :application, "pub"
 default_run_options[:pty] = true
 set :repository, "git@github.com:tjklemz/pub.git"

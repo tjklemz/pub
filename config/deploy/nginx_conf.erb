@@ -9,10 +9,11 @@ server {
   client_max_body_size 4G;
   server_name <%= server_name %>;
   keepalive_timeout 5;
-  root <%= "#{deploy_to}/#{application}/static" %>;
-  try_files $uri/index.html $uri.html $uri @<%= application %>;
+# root <%= "#{deploy_to}/current/static" %>;
+# try_files $uri/index.html $uri.html $uri @<%= application %>;
   
-  location ^~ /static/ {
+  location /static {
+    alias <%= "#{deploy_to}/current/static" %>;
     gzip_static on;
     expires max;
     add_header Cache-Control public;
@@ -31,7 +32,7 @@ server {
 
   error_page 500 502 504 /500.html;
   location = /500.html {
-    root <%= "#{deploy_to}/#{application}/static" %>;
+    root <%= "#{deploy_to}/current/static" %>;
   }
 
   error_page 503 @maintenance;
