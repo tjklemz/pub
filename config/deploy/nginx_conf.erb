@@ -1,5 +1,5 @@
 upstream <%= application %> {
-  server unix:/tmp/<%= application %>.sock fail_timeout=0;
+  server 127.0.0.1:8001;
 }
 
 server {
@@ -19,11 +19,9 @@ server {
     add_header Cache-Control public;
   }
   
-  location @<%= application %> {
-    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-    proxy_set_header Host $http_host;
-    proxy_redirect off;
-    proxy_pass http://<%= application %>;
+  location / {
+    uwsgi_pass <%= application %>;
+    include uwsgi_params;
   }
 
   if (-f $document_root/system/maintenance.html) {
