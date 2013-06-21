@@ -4,5 +4,5 @@ server the_server_name, :app, :web, :db, :primary => true
 set :user, "vagrant"
 set :password, "vagrant"
 set :sudo_user, "vagrant"
-set :deploy_to, "/var/www"
+set :deploy_to, "/var/www/#{application}"
 
