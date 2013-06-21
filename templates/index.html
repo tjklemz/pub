@@ -1,0 +1,10 @@
+<!DOCTYPE html>
+
+<html>
+  <body>
+    {% if person %}
+    <img src="/static/profile-pics/{{ say }}.jpg">
+    {% endif %}
+    <h3>Hello: {{ say|escape }}<h3>
+  </body>
+</html>
