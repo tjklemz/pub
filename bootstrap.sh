@@ -11,6 +11,6 @@ if ! hash chef-solo 2>/dev/null; then
         --force-yes -fuy dist-upgrade &&
     # install Ruby and Chef
     aptitude install -y ruby1.9.3 ruby1.9.3-dev make &&
-    sudo gem install --no-rdoc --no-ri chef --version 11.4.4 
+    sudo gem install --no-rdoc --no-ri chef --version 11.2.0 
 fi
 
